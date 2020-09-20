@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - RoomManager
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3096610293
+    locked: 0
+  - name: AbovePlayer
+    uniqueID: 1710581867
     locked: 0
