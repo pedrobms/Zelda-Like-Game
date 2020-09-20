@@ -16,12 +16,12 @@ public class PlayerAttack : MonoBehaviour{
 
   void Update(){
     if(Input.GetButtonDown("Attack") && stateManager.GetCurrentState() != PlayerState.attack){
+      anim.SetBool("isAttacking", true);
       StartCoroutine(AttackCo());
     }
   }
 
   private IEnumerator AttackCo(){
-    anim.SetBool("isAttacking", true);
     stateManager.SetCurrentState(PlayerState.attack);
     yield return null;
     anim.SetBool("isAttacking", false);
