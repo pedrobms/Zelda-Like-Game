@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour{
 
+  static float ATTACK_DURATION = .3f;
+
   private Animator anim;
   private PlayerMovement player;
   private PlayerStateManager stateManager;
@@ -25,7 +27,7 @@ public class PlayerAttack : MonoBehaviour{
     stateManager.SetCurrentState(PlayerState.attack);
     yield return null;
     anim.SetBool("isAttacking", false);
-    yield return new WaitForSeconds(.3f);
+    yield return new WaitForSeconds(ATTACK_DURATION);
     stateManager.SetCurrentState(PlayerState.idle);
   }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour{
 
+    static float DESTROY_DURATION = .5f;
+
     private Animator anim;
 
     void Start(){
@@ -22,7 +24,7 @@ public class Breakable : MonoBehaviour{
     }
 
     IEnumerator BreakCo(){
-      yield return new WaitForSeconds(.5f);
+      yield return new WaitForSeconds(DESTROY_DURATION);
       this.gameObject.SetActive(false);
     }
 }

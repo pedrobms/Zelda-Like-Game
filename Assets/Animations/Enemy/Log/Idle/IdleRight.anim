@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GrassIdle
+  m_Name: IdleRight
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1312994402987499043, guid: 9a4c8c2bbe4b2a547a6ae33c00533b12,
+      value: {fileID: 1858328530154030315, guid: 4b00e0f2b4bf1b54faf4772efc7c9f3b,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,7 +41,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1312994402987499043, guid: 9a4c8c2bbe4b2a547a6ae33c00533b12, type: 3}
+    - {fileID: 1858328530154030315, guid: 4b00e0f2b4bf1b54faf4772efc7c9f3b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
