@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealthManager : MonoBehaviour{
 
     public FloatValue maxHealth;
+    public SignalSender uiSignal;
     private float currentHealth;
     private bool isDead = false;
 
@@ -25,6 +26,7 @@ public class PlayerHealthManager : MonoBehaviour{
       if(currentHealth >= maxHealth.runtimeValue){
         currentHealth = maxHealth.runtimeValue;
       }
+      uiSignal.Raise();
     }
 
     public void DecreaseHealth(float amountToDecrease){
@@ -33,9 +35,16 @@ public class PlayerHealthManager : MonoBehaviour{
         currentHealth = 0;
         isDead = true;
       }
+      uiSignal.Raise();
     }
 
     public bool playerIsDead(){
       return isDead;
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+      if(other.CompareTag("Enemy") && !other.isTrigger){
+        DecreaseHealth(other.GetComponent<EnemyAttack>().attackDamage);
+      }
     }
 }
