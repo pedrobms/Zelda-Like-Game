@@ -8,9 +8,11 @@ public class PlayerHealthManager : MonoBehaviour{
     public SignalSender uiSignal;
     private float currentHealth;
     private bool isDead = false;
+    private PlayerStateManager stateManager;
 
     void Start(){
         currentHealth = maxHealth.runtimeValue;
+        stateManager = GetComponent<PlayerStateManager>();
     }
 
     public float GetMaxHealth(){
@@ -43,7 +45,7 @@ public class PlayerHealthManager : MonoBehaviour{
     }
 
     void OnTriggerEnter2D(Collider2D other){
-      if(other.CompareTag("Enemy") && !other.isTrigger){
+      if(other.CompareTag("Enemy") && stateManager.GetCurrentState() != PlayerState.attack){
         DecreaseHealth(other.GetComponent<EnemyAttack>().attackDamage);
       }
     }

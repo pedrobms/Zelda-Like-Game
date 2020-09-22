@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 357330555917868244}
   - component: {fileID: 357330555917868246}
   - component: {fileID: 1007106964}
+  - component: {fileID: 1803580072}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -249,7 +250,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: {fileID: 11400000, guid: be1cb4c80e4444341b6a72fbf4714865, type: 2}
-  uiSignal: {fileID: 0}
+  uiSignal: {fileID: 11400000, guid: 84fa22030a0ee824eb8373c559e88fd2, type: 2}
+--- !u!114 &1803580072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357330555917868254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89344368b7d6b245984beec62cb5ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 1
+  knockTime: 0.2
 --- !u!1 &2299914416258650521
 GameObject:
   m_ObjectHideFlags: 0
