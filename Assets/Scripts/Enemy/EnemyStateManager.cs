@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStateManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public enum EnemyState{
+  idle,
+  walk,
+  attack,
+  stagger
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+public class EnemyStateManager : MonoBehaviour{
+
+  private EnemyState currentState;
+
+  public void SetCurrentState(EnemyState newState){
+    this.currentState = newState;
+  }
+
+  public EnemyState GetCurrentState(){
+    return this.currentState;
+  }
+
+  public void ChangeState(EnemyState newState){
+    if(currentState != newState){
+      currentState = newState;
     }
+  }
+
 }

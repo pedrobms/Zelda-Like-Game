@@ -45,6 +45,9 @@ TagManager:
   - name: Signs
     uniqueID: 1990241979
     locked: 0
+  - name: Enemy
+    uniqueID: 1562358665
+    locked: 0
   - name: Player
     uniqueID: 3096610293
     locked: 0

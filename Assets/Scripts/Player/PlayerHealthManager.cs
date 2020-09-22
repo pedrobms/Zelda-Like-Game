@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour{
 
-    public float maxHealth;
+    public FloatValue maxHealth;
     private float currentHealth;
     private bool isDead = false;
 
     void Start(){
-        currentHealth = maxHealth;
+        currentHealth = maxHealth.runtimeValue;
     }
 
     public float GetMaxHealth(){
-      return maxHealth;
+      return maxHealth.runtimeValue;
     }
 
     public float GetCurrentHealth(){
@@ -22,8 +22,8 @@ public class PlayerHealthManager : MonoBehaviour{
 
     public void IncreaseHealth(float amountToIncrease){
       currentHealth += amountToIncrease;
-      if(currentHealth >= maxHealth){
-        currentHealth = maxHealth;
+      if(currentHealth >= maxHealth.runtimeValue){
+        currentHealth = maxHealth.runtimeValue;
       }
     }
 
