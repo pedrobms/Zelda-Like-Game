@@ -45,7 +45,7 @@ public class PlayerHealthManager : MonoBehaviour{
     }
 
     void OnTriggerEnter2D(Collider2D other){
-      if(other.CompareTag("Enemy") && stateManager.GetCurrentState() != PlayerState.attack){
+      if(other.CompareTag("Enemy") /*&& !other.isTrigger*/ && stateManager.GetCurrentState() != PlayerState.attack && stateManager.GetCurrentState() != PlayerState.stagger){
         DecreaseHealth(other.GetComponent<EnemyAttack>().attackDamage);
       }
     }

@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour{
 
   static float ATTACK_DURATION = .3f;
 
+  public float attackDamage = 1;
   private Animator anim;
   private PlayerMovement player;
   private PlayerStateManager stateManager;

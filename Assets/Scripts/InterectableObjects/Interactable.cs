@@ -5,12 +5,21 @@ using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour{
 
+  public BallonType ballonType;
   public bool isPlayerInRange;
-  public GameObject dialogBox;
-  public Text dialogText;
   public string dialog;
+  public GameObject dialogBox;
+  public SignalSender uiSignal;
 
+  protected Text dialogText;
   private PlayerStateManager stateManager;
+  private ContextBallon ballonManager;
+
+  void Start(){
+    stateManager = GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>();
+    ballonManager = GameObject.FindWithTag("Player").GetComponent<ContextBallon>();
+    dialogText = dialogBox.GetComponentInChildren<Text>();
+  }
 
   public virtual void Update(){
     if(Input.GetButtonDown("Interact") && isPlayerInRange && dialogBox != null){
@@ -26,14 +35,16 @@ public class Interactable : MonoBehaviour{
   }
 
   public virtual void OnTriggerEnter2D(Collider2D other){
-    if(other.CompareTag("Player") && !other.isTrigger){      
-      stateManager = other.GetComponent<PlayerStateManager>();
+    if(other.CompareTag("Player") && !other.isTrigger){
+      ballonManager.SetCurrentBallonType(ballonType);
+      uiSignal.Raise();
       isPlayerInRange = true;
     }
   }
 
   public virtual void OnTriggerExit2D(Collider2D other){
     if(other.CompareTag("Player") && !other.isTrigger){
+      uiSignal.Raise();
       isPlayerInRange = false;
     }
   }

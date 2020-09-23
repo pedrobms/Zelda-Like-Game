@@ -17,7 +17,7 @@ public class PlayerKnockback : MonoBehaviour{
   }
 
   void OnTriggerEnter2D(Collider2D other){
-    if(other.gameObject.CompareTag("Enemy") && (stateManager.GetCurrentState() == PlayerState.idle || stateManager.GetCurrentState() == PlayerState.walk)){
+    if(other.gameObject.CompareTag("Enemy") /*&& !other.isTrigger*/ && (stateManager.GetCurrentState() == PlayerState.idle || stateManager.GetCurrentState() == PlayerState.walk)){
       //Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
       Vector3 difference = transform.position - other.transform.position;
       Debug.Log("raw" + difference);

@@ -26,12 +26,12 @@ public class EnemyKnockback : MonoBehaviour
         Debug.Log("normalized: " + difference);
         //rb.AddForce(difference, ForceMode2D.Impulse);
         rb.DOMove(transform.position + difference, knockTime);
-        stateManager.SetCurrentState(EnemyState.stagger);
         StartCoroutine(KnockCo());
       }
     }
 
     IEnumerator KnockCo(){
+      stateManager.SetCurrentState(EnemyState.stagger);
       yield return new WaitForSeconds(knockTime);
       rb.velocity = Vector2.zero;
       stateManager.SetCurrentState(EnemyState.idle);
